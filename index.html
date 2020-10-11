@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>台灣團購美食</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.0.0.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/all.css" rel="stylesheet">
+	<link rel="preload" href="img/homebg1.jpg" as="image">
+	<link rel="preload" href="img/homebg2.jpg" as="image">
+	<link rel="preload" href="img/homebg3.jpg" as="image">
+	<link rel="preload" href="img/homebg4.jpg" as="image">
+  </head>
+  <body>
+	  <div id="app">
+		<div class="addCart">
+			<i class="far fa-check-circle"></i>
+			<h3>成功加入購物車</h3>
+		</div>
+		<div class="icon-bar">
+			<a href="#home"><i class="fas fa-angle-double-up"></i></a>
+			<i class="fas fa-shopping-cart" @click="isSlide = true"></i>
+			<span class="num">{{num}}</span>
+		</div>
+	  	<nav id="menu">
+	  	<ul>
+	  		<li><a href="#home">首　　頁</a></li>
+	  		<li><a href="#about">關於我們</a></li>
+	  		<li><a href="#event">最新活動</a></li>
+	  		<li><a href="#shop">商品一覽</a></li>
+	  		<li><a href="#contact">聯絡我們</a></li>
+	  		<li><a class="link" href="#login">會員登入</a></li>
+	  		<li><a @click="isSlide = true" href="#cart">購物車</a></li>
+	  	</ul>
+		  <i class="fas fa-bars"></i>
+	  </nav>
+    <section id="home">
+	  <div class="container_fluid">
+	  	<div class="row">
+		  <div class="col-sm-3">
+			<div class="pageNum">/04</div>
+			</div>
+		  <div class="col-sm-6">
+		  <a href="#about">
+			<div class="titlebx">
+				  <span></span>
+				  <span></span>
+				  <span></span>
+			  </div>
+		  </a>
+		</div>
+		  <div class="col-sm-3">
+			<div class="slogan">
+				<ul>
+					<li>各國風味美食</li>
+					<li>多種新奇口味</li>
+					<li>快速新鮮運送</li>
+					<li>就在 台灣團購美食</li>
+				</ul>
+				<a href="#about">
+					<button class="btn btn-outline-light">read more</button>
+				</a>
+			</div>
+			</div>
+		  </div>
+	  </div>
+	  </section>
+    <section id="about">
+		<div class="container_fluid">
+			<div class="ab-box">
+				<span>01</span>
+				<div>
+					<h3>網路E時代</h3>
+					<p>⼗幾年來，台灣網路不斷的普及發展，從早初的企業形象網站林立，再到⽣活⽤品拍賣網站興起， 經歷部落格的興衰，⽽後⾃製購物⾞⼜崛起，直到近幾年國際性社群網站闖進台灣，⽽⼈們的⽣活也從基本的需求隨之往上提升。</p>
+				</div>
+			</div>
+			<div class="ab-box">
+				<span>02</span>
+				<div>
+					<h3>關於我們</h3>
+					<p>食品產業以創新創意的⽅式來融入產業」是不會停⽌的趨勢。 許多新⼀代的年輕⼈，或⼀些小資創業家，也藉由社群網站起家，創立了品牌後在經濟風雨中冒險成長，以致網路通路的擴張需求更是下⼀代產業無可或缺的⼀環，透過各種形式的網站，讓顧客或消費者有了更多的選擇。</p>
+				</div>
+			</div>
+			<div class="ab-box">
+				<span>03</span>
+				<div>
+					<h3>我們的理想</h3>
+					<p>幫助各商家導引客⼾產⽣慾望想進⽽至實體商店消費。建立正確的品項資訊與架構，讓瀏覽者⼀⽬了然可以找到想要的東⻄，創造可以讓各品牌能在該網站上完美曝光的平台。</p>
+				</div>
+			</div>
+		</div>  
+	</section>
+    <section id="event">
+	 	<div class="container">
+	 		<div class="row event-row">
+				 <div class="event-imgbx left" @click="eventIndex = 0">
+					<div class="event-box event-bg1"></div>
+					<h3 class="event-name">01創意饅頭製作</h3>
+				 </div>
+				<div class="event-box right" @click="eventIndex = 0">
+					<h4>創意饅頭製作</h4>
+					<p>挑戰你的創意與手做能力，用不同食材與顏色，打造獨一無二的卡通饅頭...<a>查看更多</a></p>
+				</div>
+			</div>
+<!--			row1-->
+	 		<div class="row event-row">
+				<div class="event-box" @click="eventIndex = 2">
+					<h4>葡式蛋塔製作</h4>
+					<p>剛出爐焦香酥脆的蛋塔誰不愛呢?快學會做給你喜歡的人...<a>查看更多</a></p>
+				</div>
+				
+				<div class="joinbx">
+					<h3>{{ event.title }}</h3>
+					<p>{{ event.content }}</p>
+					<button class="btn"><a class="link" href="#join">報名活動</a></button>
+				</div>
+				
+				<div class="event-imgbx" @click="eventIndex = 1">
+					<div class="event-box event-bg2"></div>
+					<h3 class="event-name">02特色布丁製作</h3>
+				</div>
+			</div>
+<!--			row2-->
+	 		<div class="row event-row">
+				 <div class="event-imgbx left" @click="eventIndex = 2">
+					<div class="event-box event-bg3"></div>
+					<h3 class="event-name">03葡式蛋塔製作</h3>
+				 </div>
+				<div class="event-box right" @click="eventIndex = 1">
+					<h4>特色布丁製作</h4>
+					<p>想要布丁有更多種口味嗎?布丁教室開課啦，學會基本製作之後可以依據...<a>查看更多</a></p>
+				</div>
+			</div>
+<!--			row3-->
+	 	</div> 
+	 </section>
+    <section id="shop">
+		<div id="cart" :class="{'slide-left': isSlide}">
+			<div class="thead">
+				<h3><b>購物車</b></h3>
+				<span class="close" @click="isSlide = false">×</span>
+			</div>
+			<table class="table">
+				<tbody v-for="product in productInCart" class="cart-card">
+					<tr>
+						<td rowspan="2"><img :src="product.thumb" alt=""></td>
+						<td colspan="2"><h4>{{product.name}}</h4></td>
+						<td><i class="far fa-trash-alt del" @click="remove(product)"></i></td>
+					</tr>
+					<tr>
+						<td>單價<br>{{product.price}}</td>
+						<td>數量<br>{{product.amount}}</td>
+						<td>小計<br>{{product.sum}}<br></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr class="total">
+						<td colspan="3">總計</td>
+						<td>{{total}}</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<button class="btn checkOut">前往付款</button>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	  <div class="container_fluid">
+		  <div class="container mt-3">
+		  	<div class="row selectbx">
+				<div class="col-sm-3">
+					<h5 @click="selectIndex = 1">特惠活動</h5>
+				</div>
+				<div class="col-sm-3">
+					<h5 @click="selectIndex = 2">日式系列</h5>
+				</div>
+				<div class="col-sm-3">
+					<h5 @click="selectIndex = 3">台式系列</h5>
+				</div>
+				<div class="col-sm-3">
+					<h5 @click="selectIndex = 4">西式系列</h5>
+				</div>
+			 </div>
+			 <div class="row option-container" v-if="selectIndex == '1'">
+				 <button class="btn"  @click="productIndex = 0">抹茶馬卡龍</button>
+				 <button class="btn"  @click="productIndex = 1">臺灣肉乾</button>
+				 <button class="btn"  @click="productIndex = 2">草莓奶烙</button>
+			 </div>
+			 <div class="row option-container" v-else-if="selectIndex == '2'">
+				<button class="btn"  @click="productIndex = 3">抹茶牛軋糖</button>
+				<button class="btn"  @click="productIndex = 4">日式麻糬</button>
+				<button class="btn"  @click="productIndex = 5">酒心巧克力</button>
+			</div>
+			<div class="row option-container" v-else-if="selectIndex == '3'">
+				<button class="btn"  @click="productIndex = 6">臺灣肉乾</button>
+				<button class="btn"  @click="productIndex = 7">鳳梨酥</button>
+				<button class="btn"  @click="productIndex = 8">牛舌餅</button>
+			</div>
+			<div class="row option-container" v-else-if="selectIndex == '4'">
+				<button class="btn"  @click="productIndex = 9">黑森林蛋糕</button>
+				<button class="btn"  @click="productIndex = 10">蜜糖鬆餅</button>
+				<button class="btn"  @click="productIndex = 11">一口小蛋糕</button>
+			</div>
+		  </div>
+		<div class="row shop-container">
+		  	<div class="col-sm-9">
+				<div class="row tab">
+					<div class="col-sm-5 pd-imgbx">
+						<span class="decoration"></span>
+						<img :src="product.thumb" alt="">
+					</div>
+					<div class="col-sm-7">
+						<div>
+							<div>
+								<h2>{{product.name}}</h2>
+								<p>{{product.content}}</p>
+							</div>
+							<div>
+								<h4>價格: {{product.price}} <span class="heart">&#10084;</span></h4>
+							</div>
+							<div class="actionbx">
+								<div>
+									<button class="btn round" @click="minusOne(product)">-</button>
+									<span>&nbsp;{{product.amountShow}} &nbsp;</span>
+									<button class="btn round" @click="addOne(product)">+</button>
+									<button class="btn btn-addToCart" @click="addToCart(product)">加入購物車</button>
+								</div>
+								<div class="tag-box">
+									<img src="img/tag1.png" alt="">
+									<img src="img/tag2.png" alt="">
+									<img src="img/tag3.png" alt="">
+									<img src="img/tag4.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		  	<div class="col-sm-3 timeline">
+				  <img src="img/process.png" alt="">
+			  </div>
+		  </div>
+		  <a href="#shop">
+			<div class="row block-container">
+				<div  v-for="index in 2">
+					<div class="block" v-for="imgUrl in products">
+					   <img :src="imgUrl.thumb" alt="">
+					</div>
+				</div>		 	
+			</div>
+		  </a>
+	  </div>
+    </section>
+    <section id="contact">
+			<div class="infobx">
+				<h1>Contact US</h1>
+				<ul>
+					<h4>商家資訊</h4>
+					<li><i class="fas fa-phone"></i> 客服專線: (02)1234 5678</li>
+					<li><i class="fas fa-envelope"></i> 客服信箱: a123@gmail.com</li>
+					<li><i class="fas fa-headphones"></i> 客服ID: a001</li>
+				</ul>
+				<ul>
+					<h4>會員優惠</h4>
+					<li>加入送全館7折優惠</li>
+					<li>會員任選商品免運費</li>
+				</ul>
+				<ul>
+					<h4>訂閱我們</h4>
+					<li class="d-flex fans">粉絲專頁
+						<i class="fab fa-facebook social"></i>
+						<i class="fab fa-twitter social"></i>
+						<i class="fab fa-instagram social"></i>
+					</li>
+					<li>訂閱電子報:</li>
+					<li>信箱
+						<input type="text">
+						<button class="btn btn-outline-light checkOut">訂閱</button>
+					</li>
+				</ul>
+			  </div>
+			  <form class="contactbx">
+				 <h2>聯絡我們</h2>
+				  <div class="form-group">
+					  <label for="">姓名</label>
+					  <input type="text">
+				  </div>
+				<div class="form-group">
+					  <label for="">電話</label>
+					  <input type="text">
+				  </div>
+				  <div class="form-group">
+					  <label for="">信箱</label>
+					  <input type="text">
+				  </div>
+				  <div class="form-group">
+					  <label for="">意見回饋</label>
+					  <textarea rows="3"></textarea>
+				  </div>
+				  <div class="form-group d-flex">
+					  <button class="btn btn-outline-light mx-auto checkOut" type="submit">送出</button>
+					  <button class="btn btn-outline-light mx-auto" type="reset">清空</button>
+				  </div>
+			  </form>
+	</section>
+	<section class="bgDark"></section>
+		<form id="login" class="lightbx">
+			<h4>會員登入</h4>
+			<div class="form-group">
+				<label for="">帳號</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label for="">密碼</label>
+				<input type="text">
+			</div>
+			<p>還沒有帳號? <a href="#reg" class="link">註冊</a></p>
+			<p>使用其他帳號登入</p>
+			<div class="form-group d-flex">
+				<i class="fab fa-facebook mx-auto social"></i>
+				<i class="fab fa-twitter mx-auto social"></i>
+				<i class="fab fa-line mx-auto social"></i>
+			</div>
+			<div class="form-group d-flex">
+			  <button class="btn mx-auto checkOut" type="submit">登入</button>
+			  <button class="btn mx-auto close-form">關閉</button>
+		  </div>
+		</form>
+
+		<form id="reg" class="lightbx">
+			<h4>會員註冊</h4>
+			  <div class="form-group">
+				<label for="">姓名</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label for="">信箱</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label for="">帳號</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label for="">密碼</label>
+				<input type="text">
+			</div>
+			<p>已經是會員? <a href="#login" class="link">登入</a></p>
+			<div class="form-group d-flex">
+			  <button class="btn mx-auto checkOut" type="submit">註冊</button>
+			  <button class="btn mx-auto close-form">關閉</button>
+		  </div>
+		</form>
+
+		<form id="join" class="lightbx">
+			<h4>活動報名</h4>
+			  <div class="form-group">
+				<label for="">姓名</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label for="">信箱</label>
+				<input type="text">
+			</div>
+			<div class="form-group">
+				<label for="">報名種類</label>
+				<select name="" id="" class="form-control w-100">
+					<option value="">創意饅頭製作</option>
+					<option value="">特色布丁製作</option>
+					<option value="">葡式蛋塔製作</option>
+				</select>
+			</div>
+			  <div class="form-group">
+				<label for="">報名人數</label>
+				<input type="number" max="9" min="1">
+			</div>
+			<div class="form-group d-flex">
+			  <button class="btn mx-auto checkOut" type="submit">報名</button>
+			  <button class="btn mx-auto close-form">關閉</button>
+		  </div>
+		</form>
+	</div>
+		 
+	  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+    <script src="js/jquery-3.2.1.min.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed --> 
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.0.0.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/cart.js"></script>
+	<script src="js/all.js"></script>
+  </body>
+</html>
