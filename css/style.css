@@ -495,6 +495,7 @@ section{
 	color: #fff;
 	opacity: 0;
 	visibility: hidden;
+	white-space: nowrap;
 }
 .addCart{
 	display: flex;
@@ -666,7 +667,7 @@ section{
 		display: block;
 	}
 	.ab-box{
-		height: 350px;
+		height: 450px;
 	}
 	.event-row{
 		display: block;
